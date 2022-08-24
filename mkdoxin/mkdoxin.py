@@ -33,7 +33,7 @@ log = logging.getLogger(__name__)
 
 git_repo = os.environ.get("GIT_REPO")
 # Max Size defaults to 1GB
-one_GB_in_KB = 10 ^ 6
+one_GB_in_KB = 10**6
 max_repo_size = os.environ.get("MAX_REPO_SIZE", one_GB_in_KB)
 localize_site_url = os.environ.get("LOCALIZE_SITE_URL", True)
 optimize_images = os.environ.get("OPTIMIZE_IMAGES", False)
@@ -84,7 +84,6 @@ def set_commit_version_file(file, commit):
 
 def get_remote_git_size(parsed_repo):
     """ """
-    # https://docs.npmjs.com/cli/v8/configuring-npm/package-json#git-urls-as-dependencies
     is_github = parsed_repo.platform == "github"
 
     if not is_github:
@@ -101,8 +100,7 @@ def get_remote_git_size(parsed_repo):
 
 
 def convert_repo_size_to_MB(size):
-    """ """
-
+    """Expects an integer of size in KB, converts to readable size in MB."""
     converted_size = size / 1000
     return f"{converted_size:.1f}MB"
 
@@ -114,7 +112,6 @@ def repo_size_is_allowed(repo_size, max_size):
 
 def get_remote_git_commit(git_repo):
     """ """
-    # git ls-remote https://github.com/TRaSH-/Guides HEAD
     command = ["git", "ls-remote", git_repo, "HEAD"]
     ps = subprocess.Popen(command, stdout=subprocess.PIPE)
     commit_hash = subprocess.check_output(("cut", "-f1"), stdin=ps.stdout)
