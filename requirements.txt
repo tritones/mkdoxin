@@ -1,0 +1,3 @@
+giturlparse
+mkdocs
+requests
