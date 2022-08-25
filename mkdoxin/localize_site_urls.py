@@ -40,14 +40,18 @@ SafeLoader.add_constructor(None, SafeLoader.ignore_unknown)
 
 
 def fix_index_and_md(match):
-    path = match.group(1)
+    is_social_link = match.group("social_link") is not None
+    path = match.group("path")
 
     if path is None:
         path = "index"
     else:
         path = path.rstrip("/")
 
-    return path + ".md"
+    if is_social_link:
+        return "link: /" + path
+    else:
+        return path + ".md"
 
 
 def localize_site_urls(yaml_filename):
@@ -58,16 +62,27 @@ def localize_site_urls(yaml_filename):
             old_site_url = config["site_url"]
         except yaml.YAMLError as exc:
             print(exc)
+            return
 
         yaml_file = open(yaml_filename, "r")
 
         file_data = yaml_file.read()
 
-        # Removes anchor references
+        # Removes/replaces anchor references
         anchor_regex = (
+            # Skip the base reference and source of old_site_url
             r"(?<!site_url: )"
+            # Destect if the match is a social link
+            + r"(?P<social_link>link: )?"
+            # Optional quote encapsulation
+            + r"(?:['\"]?)"
             + re.escape(old_site_url)
-            + r"\/?([A-Za-z0-9-_\/]+)?(\/?#[\w\-_]+)?"
+            # Capture/match the path
+            + r"\/?(?P<path>[A-Za-z0-9-_\/]+)?"
+            # Capture/match the hash
+            + r"(?:\/?#(?P<hash>[\w\-_]+))?"
+            # Optional quote encapsulation
+            + r"(?:['\"]?)"
         )
 
         file_data = re.sub(anchor_regex, fix_index_and_md, file_data)
