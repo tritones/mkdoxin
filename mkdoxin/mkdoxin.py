@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import localize_site_urls
+from localize_site_urls import localize_site_urls
 
 from giturlparse import parse
 from http.server import HTTPServer, CGIHTTPRequestHandler
@@ -37,6 +37,7 @@ one_GB_in_KB = 10**6
 max_repo_size = os.environ.get("MAX_REPO_SIZE", one_GB_in_KB)
 localize_site_url = os.environ.get("LOCALIZE_SITE_URL", True)
 optimize_images = os.environ.get("OPTIMIZE_IMAGES", False)
+clear_repo_before_clone = os.environ.get("CLEAR_REPO_BEFORE_CLONE", False)
 
 
 def parse_repository(repository_url):
@@ -64,13 +65,13 @@ def get_commit_version_file(file):
 
     with open(file, "r") as f:
         file_contents = f.read()
-        commit = re.match(r"Commit Hash: (\w{40})", file_contents)
+        commit = re.match(r"Commit Hash: (?P<commit>\w{40})", file_contents)
         f.close()
 
     if commit is None:
         return commit
     else:
-        return commit.group(1)
+        return commit.group("commit")
 
 
 def set_commit_version_file(file, commit):
@@ -188,13 +189,10 @@ def main():
     start = time()
 
     log.info("\n-------------------------------------")
+    log.info("-------------------------------------")
     log.info("Starting MkDoxin")
-    log.info("-------------------------------------\n")
-
-    source_dir = "/docs/source"
-    build_base_dir = "/docs/site"
-    build_dir = f"{build_base_dir}/build"
-    version_file = f"{build_base_dir}/version/current_version.txt"
+    log.info("-------------------------------------")
+    log.info("-------------------------------------")
 
     parsed_repo = parse_repository(git_repo)
 
@@ -202,18 +200,29 @@ def main():
         log.error(f"Invalid repository URL! {git_repo}")
         return
 
-    remote_git_commit = get_remote_git_commit(parsed_repo.normalized)
-    print("remote commit", remote_git_commit)
+    normalized_repo = parsed_repo.normalized
 
+    log.info(f"Remote Docs Repository: {normalized_repo}")
+    log.info("-------------------------------------\n")
+
+    source_dir = "/docs/source"
+    build_base_dir = "/docs/site"
+    build_dir = f"{build_base_dir}/build"
+    version_file = f"{build_base_dir}/version/current_version.txt"
+
+    remote_git_commit = get_remote_git_commit(normalized_repo)
     file_commit = get_commit_version_file(version_file)
-    print("file commit", file_commit)
 
     is_version_current = is_commit_version_current(
         file_commit, remote_git_commit
     )
-    print("is current?", is_version_current)
 
     if not is_version_current:
+        log.info(f"GIT Repository current commit differs than local:")
+        log.info(
+            f"Local commit: {file_commit} - Remote commit: {remote_git_commit}"
+        )
+
         repo_size = get_remote_git_size(parsed_repo)
         repo_size_converted = convert_repo_size_to_MB(repo_size)
 
@@ -229,15 +238,29 @@ def main():
             )
             return
 
-        clone_repo(parsed_repo.normalized, source_dir)
+        if clear_repo_before_clone:
+            remove_local_repo(source_dir)
+
+        clone_repo(normalized_repo, source_dir)
         install_python_dependencies("/docs/source/docs/requirements.txt")
+
+        if localize_site_url:
+            log.info(f"Localizing site URL references...")
+            localize_site_urls("/docs/source/mkdocs.yml")
+
         build(source_dir, build_dir)
 
         local_git_commit = get_local_git_commit(source_dir)
-        print("local commit", local_git_commit)
         set_commit_version_file(version_file, local_git_commit)
+        log.info(
+            "GIT Repository local commit has been updated to:"
+            f" {local_git_commit}"
+        )
 
         remove_local_repo(source_dir)
+    else:
+        log.info(f"GIT Repository current commit matches local: {file_commit}")
+
     log.info("Documentation prepared in %.2f seconds", time() - start)
     serve(build_dir)
 
