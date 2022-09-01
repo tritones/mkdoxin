@@ -16,7 +16,7 @@ mkdoxin takes external documentation repositories and builds them using mkdocs a
 
 ## Environment
 
-The only required environment variable is `GIT_REPO`, the URL to the remore repository.
+The only required environment variable is `GIT_REPO`, the URL to the remote repository.
 
 Other, optional, environement variables are:
 
