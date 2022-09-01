@@ -3,8 +3,8 @@
 from logger import logger
 from gitutils import parse_repository
 from repo_manager import *
+from scheduler import scheduler
 from server import serve
-
 from os import environ
 from time import time
 
@@ -16,7 +16,10 @@ one_GB_in_KB = 10**6
 max_repo_size = environ.get("MAX_REPO_SIZE", one_GB_in_KB)
 localize_site_url = environ.get("LOCALIZE_SITE_URL", True)
 optimize_images = environ.get("OPTIMIZE_IMAGES", False)
-clear_repo_before_clone = environ.get("CLEAR_REPO_BEFORE_CLONE", False)
+clear_repo_before_clone = environ.get("CLEAR_REPO_BEFORE_CLONE", True)
+scheduled_updates = environ.get("SCHEDULED_UPDATES", True)
+update_interval = environ.get("UPDATE_INTERVAL", 1)
+update_cadence = environ.get("UPDATE_CADENCE", "days")
 
 
 def main():
@@ -42,14 +45,25 @@ def main():
     log.info(f"Remote Docs Repository: {normalized_repo}")
     log.info("-------------------------------------\n")
 
-    rpm(
-        normalized_repo=normalized_repo,
-        max_repo_size=max_repo_size,
-        clear_repo_before_clone=clear_repo_before_clone,
-        localize_site_url=localize_site_url,
-    )
+    repo_manager_arguments = {
+        "normalized_repo": normalized_repo,
+        "max_repo_size": max_repo_size,
+        "clear_repo_before_clone": clear_repo_before_clone,
+        "localize_site_url": localize_site_url,
+    }
 
-    log.info("Documentation prepared in %.2f seconds", time() - start)
+    if not scheduled_updates:
+        rpm(**repo_manager_arguments)
+    else:
+        runner = scheduler(
+            rpm,
+            repo_manager_arguments,
+            interval=update_interval,
+            cadence=update_cadence,
+            run_on_start=True,
+        )
+
+    log.info("Initialization completed in %.2f seconds", time() - start)
     serve(build_dir)
 
 

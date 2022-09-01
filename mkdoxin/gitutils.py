@@ -36,7 +36,7 @@ def get_commit_version_file(file):
 
     with open(file, "r") as f:
         file_contents = f.read()
-        commit = match(r"Commit Hash: s(?P<commit>\w{40})", file_contents)
+        commit = match(r"Commit Hash: (?P<commit>\w{40})", file_contents)
         f.close()
 
     if commit is None:
