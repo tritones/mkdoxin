@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
+import os
+import subprocess
+from shutil import rmtree
+from time import time
 
 import gitutils
+import utils
 from localize_site_urls import localize_site_urls
 from logger import logger
-import os
-from shutil import rmtree
-import subprocess
-from time import time
-import utils
 
 log = logger(__name__)
 

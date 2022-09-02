@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-
-from http.server import HTTPServer, CGIHTTPRequestHandler
+from http.server import CGIHTTPRequestHandler
+from http.server import HTTPServer
 from os import chdir as os_chdir
+
 from logger import logger
 
 log = logger(__name__)

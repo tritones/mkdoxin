@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-
-from logger import logger
-import schedule
 import threading
 import time
+
+import schedule
+from logger import logger
 
 log = logger(__name__)
 
