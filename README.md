@@ -27,5 +27,3 @@ Other, optional, environment variables are:
 -   `LOCALIZE_SITE_URL` (boolean) - whether to automatically "localize" the `site_url` from mkdocs.yml for any redirects. Converts to localhost for self-contained documents. Defaults to `TRUE`.\*
 
 _\*Certain docs utilize the plugin [`mkdocs-redirects`](https://github.com/mkdocs/mkdocs-redirects) and occasionally use the hardcoded value from `site_url` in various redirect locations to support anchor references (`#`), which `mkdocs-redirects` does not currently support._
-
-teh
