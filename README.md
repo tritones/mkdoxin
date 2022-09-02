@@ -9,7 +9,7 @@
 > _When life gives you docs, make dachshund!_
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/tritones/mkdoxin/blob/main/LICENSE)
-[![build status](https://github.com/tritones/mkdoxin/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/tritones/mkdoxin/actions)
+[![build status](https://github.com/tritones/mkdoxin/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/tritones/mkdoxin/actions)
 [![GitHub release](https://img.shields.io/github/release/tritones/mkdoxin.svg)](https://github.com/tritones/mkdoxin/releases/)
 
 mkdoxin takes external documentation repositories and builds them using mkdocs and mkdocs-material.
