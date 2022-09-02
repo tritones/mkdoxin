@@ -6,7 +6,7 @@
   </a>
 </p>
 
-> When life gives you docs, make dachshund!
+> _When life gives you docs, make dachshund!_
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/tritones/mkdoxin/blob/main/LICENSE)
 [![build status](https://github.com/tritones/mkdoxin/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/tritones/mkdoxin/actions)
@@ -27,3 +27,5 @@ Other, optional, environment variables are:
 -   `LOCALIZE_SITE_URL` (boolean) - whether to automatically "localize" the `site_url` from mkdocs.yml for any redirects. Converts to localhost for self-contained documents. Defaults to `TRUE`.\*
 
 _\*Certain docs utilize the plugin [`mkdocs-redirects`](https://github.com/mkdocs/mkdocs-redirects) and occasionally use the hardcoded value from `site_url` in various redirect locations to support anchor references (`#`), which `mkdocs-redirects` does not currently support._
+
+tastesd
