@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 -   Initial functionality!
--   Configured Dependabot for Docker, pip, and GitHub Actions
+-   Configure Dependabot for Docker, pip, and GitHub Actions
 -   Ability to "localize" the site_url
 -   Add a simpler scheduler
 -   Manual Docker Image build GitHub Action
