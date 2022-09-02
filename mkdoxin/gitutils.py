@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
+import os
+import subprocess
+from re import match
+from time import time
 
 from giturlparse import parse
 from logger import logger
-import os
-from re import match
 from requests import get as req_get
-import subprocess
-from time import time
 
 log = logger(__name__)
 

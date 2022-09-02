@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
+from os import environ
+from time import time
 
-from logger import logger
 from gitutils import parse_repository
+from logger import logger
 from repo_manager import *
 from scheduler import scheduler
 from server import serve
-from os import environ
-from time import time
 
 log = logger(__name__)
 

@@ -6,7 +6,7 @@
   </a>
 </p>
 
-> When life gives you docs, make dachshund!
+> _When life gives you docs, make dachshund!_
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/tritones/mkdoxin/blob/main/LICENSE)
 [![build status](https://github.com/tritones/mkdoxin/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/tritones/mkdoxin/actions)
@@ -18,7 +18,7 @@ mkdoxin takes external documentation repositories and builds them using mkdocs a
 
 The only required environment variable is `GIT_REPO`, the URL to the remote repository.
 
-Other, optional, environement variables are:
+Other, optional, environment variables are:
 
 -   `MAX_REPO_SIZE` (integer) - value in KB, defaults to 1GB (1,000,000 KB)
 -   `SCHEDULED_UPDATES` (boolean) - whether to automatically pull updates on a schedule. Defaults to `TRUE`.
