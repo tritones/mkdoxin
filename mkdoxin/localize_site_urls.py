@@ -36,7 +36,7 @@ class SafeLoader(yaml.SafeLoader):  # pylint: disable=too-many-ancestors
 SafeLoader.add_multi_constructor(
     "tag:yaml.org,2002:python/name:", SafeLoader.construct_python_name
 )
-SafeLoader.add_constructor(None, SafeLoader.ignore_unknown)
+SafeLoader.add_constructor(None, SafeLoader.ignore_unknown)  # type: ignore[arg-type]
 
 
 def fix_index_and_md(match):

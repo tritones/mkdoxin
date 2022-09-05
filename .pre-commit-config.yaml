@@ -21,8 +21,18 @@ repos:
     rev: v3.8.2
     hooks:
       - id: reorder-python-imports
+        alias: sort-imports
   - repo: https://github.com/crate-ci/typos
     rev: v1.12.2
     hooks:
       - id: typos
         exclude: "(_typos.toml|.gitignore)"
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.32.2
+    hooks:
+      - id: markdownlint
+      - id: markdownlint
+        name: markdownlint-fix
+        alias: markdownlint-fix
+        args: ["--fix"]
+        stages: [manual]

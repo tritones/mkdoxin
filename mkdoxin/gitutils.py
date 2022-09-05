@@ -4,7 +4,7 @@ import subprocess
 from re import match
 from time import time
 
-from giturlparse import parse
+from giturlparse import parse  # type: ignore
 from logger import logger
 from requests import get as req_get
 

@@ -2,7 +2,7 @@
 import threading
 import time
 
-import schedule
+import schedule  # type: ignore
 from logger import logger
 
 log = logger(__name__)
