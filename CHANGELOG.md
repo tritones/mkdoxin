@@ -11,7 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
--   Implemented `pre-commits` (https://github.com/tritones/mkdoxin/pull/10)
+-   Improves linting. adds markdownlint, and GH Actions for checks (<https://github.com/tritones/mkdoxin/pull/12>)
+-   Implemented `pre-commits` (<https://github.com/tritones/mkdoxin/pull/10>)
 
 ## [0.1.0] - 2022-09-01
 

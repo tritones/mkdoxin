@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://json.schemastore.org/pre-commit-config.json
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.3.0
@@ -13,16 +15,30 @@ repos:
         args: ["--branch", "main"]
       - id: check-added-large-files
         args: ["--maxkb=500"]
+
   - repo: https://github.com/psf/black
     rev: 22.8.0
     hooks:
       - id: black
+
   - repo: https://github.com/asottile/reorder_python_imports
     rev: v3.8.2
     hooks:
       - id: reorder-python-imports
+        alias: sort-imports
+
   - repo: https://github.com/crate-ci/typos
     rev: v1.12.2
     hooks:
       - id: typos
         exclude: "(_typos.toml|.gitignore)"
+
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.32.2
+    hooks:
+      - id: markdownlint
+      - id: markdownlint
+        name: markdownlint-fix
+        alias: markdownlint-fix
+        args: ["--fix"]
+        stages: [manual]
