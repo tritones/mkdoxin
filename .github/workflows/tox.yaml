@@ -36,14 +36,6 @@ jobs:
         run: |
           python -m tox --discover $(which python)
         shell: bash
-      - name: Upload Codecov Results
-        if: success()
-        uses: codecov/codecov-action@v1
-        with:
-          file: ./coverage.xml
-          flags: unittests
-          name: ${{ matrix.os }}/${{ matrix.tox-env }}
-          fail_ci_if_error: false
 
   lint:
     runs-on: ubuntu-latest
@@ -68,6 +60,3 @@ jobs:
       - name: Check with mypy
         if: always()
         run: python -m tox -e mypy
-      #- name: Check with markdown-lint
-      #  if: always()
-      #  run: python -m tox -e markdown-lint
