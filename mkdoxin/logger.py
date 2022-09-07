@@ -59,7 +59,7 @@ class ColorFormatter(logging.Formatter):
         return prefix + colored(message, msg_color)
 
 
-def logger(name: str, level: str = logging.INFO):
+def logger(name: str, level: int = logging.INFO):
     """Wraps and formats logging to match a similar style to MkDocs."""
 
     logging.basicConfig(level=logging.INFO, format="%(message)s")
