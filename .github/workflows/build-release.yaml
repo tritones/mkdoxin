@@ -35,7 +35,6 @@ jobs:
           SEMVER: type=semver,value=${{ github.event.release.tag_name }}
         with:
           images: |
-            ${{ github.event.repository.full_name }}
             ghcr.io/${{ github.event.repository.full_name }}
           tags: |
             ${{ env.SEMVER }},pattern={{version}}
