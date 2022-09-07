@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+-   Add mypy to pre-commit (<https://github.com/tritones/mkdoxin/pull/24>)
+
+### Fixes
+
+-   Improve logging to match(ish) McDocs (<https://github.com/tritones/mkdoxin/pull/24>)
+
 ## [0.1.2] - 2022-09-07
 
 ### Added
