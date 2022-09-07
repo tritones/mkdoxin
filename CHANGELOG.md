@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2022-09-06
+
 ### Added
 
 -   Introduce semver and nightly docker builds (<https://github.com/tritones/mkdoxin/pull/16>)
@@ -27,5 +29,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- Release Links -->
 
-[unreleased]: https://github.com/tritones/mkdoxin/compare/v0.1.0...HEAD
+[unreleased]: https://github.com/tritones/mkdoxin/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/tritones/mkdoxin/releases/tag/v0.1.1
 [0.1.0]: https://github.com/tritones/mkdoxin/releases/tag/v0.1.0
