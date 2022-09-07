@@ -42,3 +42,10 @@ repos:
         alias: markdownlint-fix
         args: ["--fix"]
         stages: [manual]
+
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy
+        entry: tox -e mypy
+        language: python
