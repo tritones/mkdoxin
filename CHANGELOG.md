@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+-   Docker compose! (<https://github.com/tritones/mkdoxin/pull/20>)
+
+### Fixes
+
+-   Tweaks to importing environment variables (<https://github.com/tritones/mkdoxin/pull/20>)
+-   Add guard in directory delete to ensure directory exists (<https://github.com/tritones/mkdoxin/pull/20>)
+
 ## [0.1.1] - 2022-09-06
 
 ### Added

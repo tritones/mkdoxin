@@ -31,6 +31,10 @@ def remove_local_repo(source_dir):
     """ """
     log.info("Removing local repository...")
 
+    if not os.path.exists(source_dir):
+        log.info(f"Directory '{source_dir}' doesn't exists, skipping delete!")
+        return
+
     for files in os.listdir(source_dir):
         path = os.path.join(source_dir, files)
         try:

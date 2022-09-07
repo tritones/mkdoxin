@@ -30,7 +30,7 @@ Other, optional, environment variables are:
 -   `UPDATE_CADENCE` (integer) - Only applicable if `SCHEDULED_UPDATES` is `TRUE`. Valid options
     are: `second`, `seconds`, `minute`, `minutes`, `hour`, `hours`, `day`, `days`, `week`, `weeks`,
     `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`. Defaults to
-    `day`.
+    `days`.
 -   `LOCALIZE_SITE_URL` (boolean) - whether to automatically "localize" the `site_url` from
     mkdocs.yml for any redirects. Converts to localhost for self-contained documents. Defaults to
     `TRUE`.\*
