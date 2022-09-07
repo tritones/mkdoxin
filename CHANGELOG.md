@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixes
 
+-   Avoid GitHub actions running twice (<https://github.com/tritones/mkdoxin/pull/21>)
 -   Tweaks to importing environment variables (<https://github.com/tritones/mkdoxin/pull/20>)
 -   Add guard in directory delete to ensure directory exists (<https://github.com/tritones/mkdoxin/pull/20>)
 
