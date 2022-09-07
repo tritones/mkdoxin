@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+-   Introduce semver and nightly docker builds (<https://github.com/tritones/mkdoxin/pull/16>)
 -   Improves linting. adds markdownlint, and GH Actions for checks (<https://github.com/tritones/mkdoxin/pull/12>)
 -   Implemented `pre-commits` (<https://github.com/tritones/mkdoxin/pull/10>)
 
