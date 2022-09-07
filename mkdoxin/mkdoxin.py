@@ -28,7 +28,7 @@ def main():
     build_base_dir = "/docs/site"
     build_dir = f"{build_base_dir}/build"
 
-    log.info("\n-------------------------------------")
+    log.info("-------------------------------------")
     log.info("-------------------------------------")
     log.info("Starting MkDoxin")
     log.info("-------------------------------------")
@@ -43,7 +43,7 @@ def main():
     normalized_repo = parsed_repo.normalized
 
     log.info(f"Remote Docs Repository: {normalized_repo}")
-    log.info("-------------------------------------\n")
+    log.info("-------------------------------------")
 
     repo_manager_arguments = {
         "normalized_repo": normalized_repo,
