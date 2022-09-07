@@ -13,12 +13,12 @@ log = logger(__name__)
 git_repo = environ.get("GIT_REPO")
 # Max Size defaults to 1GB
 one_GB_in_KB = 10**6
-max_repo_size = environ.get("MAX_REPO_SIZE", one_GB_in_KB)
-localize_site_url = environ.get("LOCALIZE_SITE_URL", True)
-optimize_images = environ.get("OPTIMIZE_IMAGES", False)
-clear_repo_before_clone = environ.get("CLEAR_REPO_BEFORE_CLONE", True)
-scheduled_updates = environ.get("SCHEDULED_UPDATES", True)
-update_interval = environ.get("UPDATE_INTERVAL", 1)
+max_repo_size = int(environ.get("MAX_REPO_SIZE", one_GB_in_KB))
+localize_site_url = bool(environ.get("LOCALIZE_SITE_URL", True))
+optimize_images = bool(environ.get("OPTIMIZE_IMAGES", False))
+clear_repo_before_clone = bool(environ.get("CLEAR_REPO_BEFORE_CLONE", False))
+scheduled_updates = bool(environ.get("SCHEDULED_UPDATES", True))
+update_interval = int(environ.get("UPDATE_INTERVAL", 1))
 update_cadence = environ.get("UPDATE_CADENCE", "days")
 
 

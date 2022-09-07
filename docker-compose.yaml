@@ -1,0 +1,21 @@
+services:
+  mkdoxin:
+    image: ghcr.io/tritones/mkdoxin:nightly
+    # user: $DOCKER_UID:$DOCKER_GID
+    volumes:
+      - ./mkdoxin:/docs/mkdoxin
+    environment:
+      GIT_REPO: $GIT_REPO
+      LOCALIZE_SITE_URL: "TRUE"
+      MAX_REPO_SIZE: 1000000
+      SCHEDULED_UPDATES: "TRUE"
+      TZ: America/Los_Angeles
+      UPDATE_INTERVAL: 1
+      UPDATE_CADENCE: days
+    ports:
+      - "5000:8000"
+
+networks:
+  recyclarr:
+    name: mkdoxin
+    driver: bridge

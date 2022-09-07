@@ -1,4 +1,5 @@
 {
+    "//comment": "Event payload for local GitHub Action testing. See: https://github.com/nektos/act",
     "repository": {
         "full_name": "tritones/mkdoxin"
     },
