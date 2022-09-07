@@ -41,8 +41,8 @@ the hardcoded value from `site_url` in various redirect locations to support anc
 
 [license image]: https://img.shields.io/badge/License-MIT-blue.svg
 [license link]: https://github.com/tritones/mkdoxin/blob/main/LICENSE
-[build image]: https://github.com/tritones/mkdoxin/actions/workflows/build.yaml/badge.svg?branch=main
-[build link]: https://github.com/tritones/mkdoxin/actions
+[build image]: https://github.com/tritones/mkdoxin/actions/workflows/build-release.yaml/badge.svg?branch=main
+[build link]: https://github.com/tritones/mkdoxin/actions/workflows/build-release.yaml
 [github image]: https://img.shields.io/github/release/tritones/mkdoxin.svg
 [github link]: https://github.com/tritones/mkdoxin/releases
 [mkdocs-redirects link]: https://github.com/mkdocs/mkdocs-redirects
