@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -   Add mypy to pre-commit (<https://github.com/tritones/mkdoxin/pull/24>)
 
+### Changed
+
+-   Updated base image of makedocs-material (<https://github.com/tritones/mkdoxin/pull/29>)
+
 ### Fixes
 
 -   Improve logging to match(ish) McDocs (<https://github.com/tritones/mkdoxin/pull/24>)
