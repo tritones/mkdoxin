@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.3] - 2022-09-19
+
 ### Added
 
 -   Add mypy to pre-commit (<https://github.com/tritones/mkdoxin/pull/24>)
@@ -17,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -   Updated base image of makedocs-material (<https://github.com/tritones/mkdoxin/pull/29>)
 
-### Fixes
+### Fixed
 
 -   Improve logging to match(ish) McDocs (<https://github.com/tritones/mkdoxin/pull/24>)
 
@@ -27,7 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -   Docker compose! (<https://github.com/tritones/mkdoxin/pull/20>)
 
-### Fixes
+### Fixed
 
 -   Avoid GitHub actions running twice (<https://github.com/tritones/mkdoxin/pull/21>)
 -   Tweaks to importing environment variables (<https://github.com/tritones/mkdoxin/pull/20>)
@@ -53,7 +55,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- Release Links -->
 
-[unreleased]: https://github.com/tritones/mkdoxin/compare/v0.1.2...HEAD
+[unreleased]: https://github.com/tritones/mkdoxin/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/tritones/mkdoxin/releases/tag/v0.1.3
 [0.1.2]: https://github.com/tritones/mkdoxin/releases/tag/v0.1.2
 [0.1.1]: https://github.com/tritones/mkdoxin/releases/tag/v0.1.1
 [0.1.0]: https://github.com/tritones/mkdoxin/releases/tag/v0.1.0
