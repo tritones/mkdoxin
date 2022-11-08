@@ -1,4 +1,4 @@
-FROM squidfunk/mkdocs-material:8.5.2
+FROM squidfunk/mkdocs-material:8.5.8
 
 # Build-time flags
 ARG BUILD_MODE=false
